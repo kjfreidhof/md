@@ -3,7 +3,7 @@
 # Author: kjfreidhof
 # Created: November, 14 2023
 # About: A shell script that manages docker
-
+# License: MIT
 
 # A varriable for finding the valid option
 valid_option_found=false
@@ -151,7 +151,7 @@ while getopts "licstprh" options; do
                         ;;
         # if the -h flag is given then run the help guide
                 h)
-  help_guide
+		        help_guide
                         valid_option_found=true
                         exit 0
                         ;;
