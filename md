@@ -27,10 +27,17 @@ pull_image() {
 create_container() {
         read -rp "Create the container you want to create: " container
         read -rp "Enter the image (This is the image you pulled): " image
-        docker create --name "$container" -it "$image"
+	docker create --name "$container" -it "$image"
+	
+	# added the ability to save the name you created into a file. 
+	read -rp "Do you want to save the created container: " option 
+	if [ "$option" = y ] || [ "$option" = Y ]; then
+	       read -rp "Enter the file name you want create: " file_name
+       	       echo "$container" >> "$file_name"
 
 
-
+	fi 	       
+	
 }
 # A Function to start the container
 
@@ -73,6 +80,9 @@ run_image_as() {
 
 
 }
+
+
+
 
 # Help guide for the script
 help_guide() {
